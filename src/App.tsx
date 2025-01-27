@@ -9,7 +9,10 @@ function App() {
   // Limite de semanas --> 52
   const [weekCounter, setWeekCounter] = useState(1);
 
-  //const [data, setData] = useState({});
+  const [weeks, setWeeks] = useState(
+
+  );
+
 
 
   return (
@@ -41,9 +44,9 @@ function App() {
               </h3>
               <ul className="task-list">
 
-              <TaskComponent
-                description={"Prueba"}
-              />
+                <TaskComponent
+                  description={"Prueba"}
+                />
 
               </ul>
             </div>
