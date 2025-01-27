@@ -1,11 +1,16 @@
 //import { useState } from "react";
 import { useState } from "react";
-import Form from "./components/Form";
-import {Week, Day, Task} from "./types/types.tsx";
+import Form from "./components/Form.tsx";
+import TaskComponent from "./components/TaskComponent.tsx";
+import { Week, Day, Task } from "./types/index.ts";
 
 function App() {
 
-  const [week, setWeek] = useState(1);
+  // Limite de semanas --> 52
+  const [weekCounter, setWeekCounter] = useState(1);
+
+  //const [data, setData] = useState({});
+
 
   return (
     <>
@@ -18,9 +23,9 @@ function App() {
         </section>
 
         <section className="week-navigation">
-          <button>Semana Anterior</button>
-          <span>Semana X</span>
-          <button>Semana Siguiente</button>
+          <button onClick={() => setWeekCounter((weekCounter - 1) < 1 ? 1 : weekCounter - 1)}>Semana Anterior</button>
+          <span>Semana {weekCounter}</span>
+          <button onClick={() => setWeekCounter((weekCounter + 1) < 52 ? weekCounter + 1 : 52)}>Semana Siguiente</button>
         </section>
 
         <Form />
@@ -36,7 +41,9 @@ function App() {
               </h3>
               <ul className="task-list">
 
-
+              <TaskComponent
+                description={"Prueba"}
+              />
 
               </ul>
             </div>

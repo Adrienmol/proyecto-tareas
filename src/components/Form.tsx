@@ -23,6 +23,15 @@ function Form() {
         event.preventDefault();
     }
 
+    /*
+
+
+        CAMBIAR LOS DIAS. SE TIENEN QUE CARGAR DINAMICAMENTE
+
+
+        
+    */
+
     return (
         <>
             <form className="form" method="POST" onSubmit={handleSubmit}>
@@ -35,6 +44,7 @@ function Form() {
                         required
                         onChange={handleChange}
                     >
+                        
                         <option key="lunes" value="lunes">Lunes</option>
                         <option key="martes" value="martes">Martes</option>
                         <option key="miercoles" value="miercoles">Miércoles</option>
