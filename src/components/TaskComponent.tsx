@@ -1,6 +1,6 @@
 
 type TaskProps = {
-    description: String;
+    description: string;
 }
 
 function TaskComponent({description} : TaskProps) {

@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { FormHTMLAttributes, useState } from "react";
 
+type FormProps = {
+    addTask: (day: string, week: number, description: string) => void,
+    DAYS : string[]
+}
 
-function Form() {
+function Form({ addTask, DAYS }: FormProps) {
+    
 
     // Estado para el día y la tarea
     const [formData, setFormData] = useState({
@@ -16,11 +21,12 @@ function Form() {
             ...previousForm,
             [name]: value,
         }));
-        
+
     }
 
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
+        //addTask();
     }
 
     /*
@@ -44,14 +50,14 @@ function Form() {
                         required
                         onChange={handleChange}
                     >
-                        
-                        <option key="lunes" value="lunes">Lunes</option>
-                        <option key="martes" value="martes">Martes</option>
-                        <option key="miercoles" value="miercoles">Miércoles</option>
-                        <option key="jueves" value="jueves">Jueves</option>
-                        <option key="viernes" value="viernes">Viernes</option>
-                        <option key="sabado" value="sabado">Sábado</option>
-                        <option key="domingo" value="domingo">Domingo</option>
+
+                        <option key="lunes" value="Lunes">Lunes</option>
+                        <option key="martes" value="Martes">Martes</option>
+                        <option key="miercoles" value="Miercoles">Miércoles</option>
+                        <option key="jueves" value="Jueves">Jueves</option>
+                        <option key="viernes" value="Viernes">Viernes</option>
+                        <option key="sabado" value="Sabado">Sábado</option>
+                        <option key="domingo" value="Domingo">Domingo</option>
 
                     </select>
                 </label>
@@ -68,7 +74,7 @@ function Form() {
                 </label>
                 <button type="submit">Añadir Tarea</button>
             </form>
-            
+
         </>
 
     )
