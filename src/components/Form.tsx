@@ -2,10 +2,11 @@ import { FormHTMLAttributes, useState } from "react";
 
 type FormProps = {
     addTask: (day: string, week: number, description: string) => void,
-    DAYS : string[]
+    DAYS : string[],
+    weekCounter: number
 }
 
-function Form({ addTask, DAYS }: FormProps) {
+function Form({ addTask, DAYS , weekCounter}: FormProps) {
     
 
     // Estado para el día y la tarea
@@ -26,7 +27,7 @@ function Form({ addTask, DAYS }: FormProps) {
 
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
-        console.log(event)
+        addTask(formData.day, weekCounter, formData.task);
     }
 
     function renderSelectOptions() {

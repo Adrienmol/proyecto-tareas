@@ -30,6 +30,10 @@ function App() {
     setTasks(prevTasks => [...prevTasks, newTask]);
   }
 
+  function deleteTask() {
+
+  }
+
   function renderTasksByDay(day: string) {
 
     const currentDayTasks = getTasksByDay(day);
@@ -46,6 +50,7 @@ function App() {
                 <TaskComponent
                   key={Math.floor(Math.random() * 2_000_000_000) + 1} // key aleatoria  
                   description={currentTask.description}
+                  deleteTask = {() => deleteTask}
                 />
               ))
             }
@@ -87,6 +92,7 @@ function App() {
         <Form
           addTask={addTask}
           DAYS={DAYS}
+          weekCounter = {weekCounter}
         />
 
         <section>

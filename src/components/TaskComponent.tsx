@@ -1,10 +1,14 @@
 
 type TaskProps = {
     description: string;
+    deleteTask : () => void
 }
 
 function TaskComponent({description} : TaskProps) {
     
+    function deleteTask() {
+        
+    }
 
     return (
         <>
