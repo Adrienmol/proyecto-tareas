@@ -30,8 +30,20 @@ function App() {
     setTasks(prevTasks => [...prevTasks, newTask]);
   }
 
-  function deleteTask() {
-
+  function deleteTask(description: string, week: number, day: string) {    
+    setTasks(prevTasks => prevTasks.filter(task => 
+      !(task.description === description && task.week === week && task.day === day)
+    ));
+  }
+  
+  const totalWeekTasks = () => {
+    let count = 0;
+    tasks.map(task => (
+      task.week === weekCounter
+      ? count++
+      : count = count
+    ))
+    return count;
   }
 
   function renderTasksByDay(day: string) {
@@ -48,9 +60,11 @@ function App() {
             {
               currentDayTasks.map(currentTask => (
                 <TaskComponent
-                  key={Math.floor(Math.random() * 2_000_000_000) + 1} // key aleatoria  
+                  key={`${currentTask.description}-${currentTask.week}-${currentTask.day}`}
                   description={currentTask.description}
-                  deleteTask = {() => deleteTask}
+                  deleteTask = {deleteTask}
+                  week={currentTask.week}
+                  day={currentTask.day}
                 />
               ))
             }
@@ -98,7 +112,7 @@ function App() {
         />
 
         <section>
-          <h2>Total de tareas esta semana: 0</h2>
+          <h2>Total de tareas esta semana: {totalWeekTasks()}</h2>
 
           <aside className="calendar">
 

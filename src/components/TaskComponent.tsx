@@ -1,20 +1,18 @@
 
 type TaskProps = {
     description: string;
-    deleteTask : () => void
+    deleteTask : (description: string, week: number, day: string) => void
+    week : number
+    day : string
 }
 
-function TaskComponent({description} : TaskProps) {
+function TaskComponent({description, deleteTask, week, day} : TaskProps) {
     
-    function deleteTask() {
-        
-    }
-
     return (
         <>
             <li>
                 {description}
-                <button className="delete-button">
+                <button className="delete-button" onClick={() => deleteTask(description, week, day)}>
                     🗑️
                 </button>
             </li>
