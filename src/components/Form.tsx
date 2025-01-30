@@ -11,7 +11,7 @@ function Form({ addTask, DAYS , weekCounter}: FormProps) {
 
     // Estado para el día y la tarea
     const [formData, setFormData] = useState({
-        day: "lunes", // Empieza por defecto en lunes
+        day: "Lunes", // Empieza por defecto en lunes
         task: "",
     });
 

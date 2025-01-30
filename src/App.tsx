@@ -46,7 +46,7 @@ function App() {
           </h3>
           <ul className="task-list">
             {
-              tasks.map(currentTask => (
+              currentDayTasks.map(currentTask => (
                 <TaskComponent
                   key={Math.floor(Math.random() * 2_000_000_000) + 1} // key aleatoria  
                   description={currentTask.description}
