@@ -1,28 +1,26 @@
-import { FormHTMLAttributes, useState } from "react";
+import { useState } from "react";
 
 type FormProps = {
     addTask: (day: string, week: number, description: string) => void,
-    DAYS : string[],
+    DAYS: string[],
     weekCounter: number
 }
 
-function Form({ addTask, DAYS , weekCounter}: FormProps) {
-    
+function Form({ addTask, DAYS, weekCounter }: FormProps) {
 
-    // Estado para el día y la tarea
+
     const [formData, setFormData] = useState({
-        day: "Lunes", // Empieza por defecto en lunes
+        day: "Lunes",
         task: "",
     });
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
         const { name, value } = event.target;
-        // Del evento saca el nombre (para saber si es "day" o "task") y el value (valor nuevo para esa opcion)
+
         setFormData((previousForm) => ({
             ...previousForm,
             [name]: value,
         }));
-
     }
 
     function handleSubmit(event: React.FormEvent) {
@@ -53,7 +51,16 @@ function Form({ addTask, DAYS , weekCounter}: FormProps) {
 
     return (
         <>
-            <form className="form" method="POST" onSubmit={handleSubmit}>
+            <form className="form" method="POST"
+                onSubmit={handleSubmit}
+                onKeyDown={(event) => {
+
+                    if (event.key === "Enter") {
+                        handleSubmit(event);
+                    }
+
+                }}>
+
                 <label>
                     Día:
 
@@ -65,10 +72,10 @@ function Form({ addTask, DAYS , weekCounter}: FormProps) {
                     >
 
                         {
-                           renderSelectOptions()
+                            renderSelectOptions()
                         }
 
-    
+
                     </select>
                 </label>
                 <label>
