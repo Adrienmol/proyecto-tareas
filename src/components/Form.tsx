@@ -26,7 +26,7 @@ function Form({ addTask, DAYS }: FormProps) {
 
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
-        //addTask();
+        console.log(event)
     }
 
     /*
