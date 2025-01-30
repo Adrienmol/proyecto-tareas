@@ -67,8 +67,10 @@ function App() {
       if (currentTask.day === day && currentTask.week === weekCounter) {
         returnTasks.push(currentTask);
       }
+      
+      
     });
-
+    console.log(returnTasks);
     return returnTasks;
 
   }
