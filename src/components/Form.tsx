@@ -29,6 +29,18 @@ function Form({ addTask, DAYS }: FormProps) {
         console.log(event)
     }
 
+    function renderSelectOptions() {
+        return (
+            <>
+                {
+                    DAYS.map(day => (
+                        <option key={day} value={day}>{day}</option>
+                    ))
+                }
+            </>
+        )
+    }
+
     /*
 
 
@@ -51,14 +63,11 @@ function Form({ addTask, DAYS }: FormProps) {
                         onChange={handleChange}
                     >
 
-                        <option key="lunes" value="Lunes">Lunes</option>
-                        <option key="martes" value="Martes">Martes</option>
-                        <option key="miercoles" value="Miercoles">Miércoles</option>
-                        <option key="jueves" value="Jueves">Jueves</option>
-                        <option key="viernes" value="Viernes">Viernes</option>
-                        <option key="sabado" value="Sabado">Sábado</option>
-                        <option key="domingo" value="Domingo">Domingo</option>
+                        {
+                           renderSelectOptions()
+                        }
 
+    
                     </select>
                 </label>
                 <label>
